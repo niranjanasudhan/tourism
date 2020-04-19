@@ -56,20 +56,20 @@ function check_password(password) {
 
     } else {
 
-        var regexp_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
+        // var regexp_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
 
-        if (regexp_pass.test(password.trim())) {
-            document.getElementById('error_password').style.display = "none";
-            document.getElementById('password').style.borderBottom = "2px solid #fff";
-            document.getElementById('error_password').innerHTML = "";
-            return true;
+        // if (regexp_pass.test(password.trim())) {
+        document.getElementById('error_password').style.display = "none";
+        document.getElementById('password').style.borderBottom = "2px solid #fff";
+        document.getElementById('error_password').innerHTML = "";
+        return true;
 
-        } else {
-            document.getElementById('error_password').style.display = "block";
-            document.getElementById('password').style.borderBottom = "2px solid tomato";
-            document.getElementById('error_password').innerHTML = "* Enter Valid Password";
-            return false;
-        }
+        // } else {
+        //     document.getElementById('error_password').style.display = "block";
+        //     document.getElementById('password').style.borderBottom = "2px solid tomato";
+        //     document.getElementById('error_password').innerHTML = "* Enter Valid Password<br> one lowercase and uppercase character, contain a digit and must be min 8 and max 32 character long";
+        //     return false;
+        // }
 
     }
 }
