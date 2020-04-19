@@ -46,60 +46,56 @@
     </header>
     <!-- header -->
     <div class="body_content">
+        <video autoplay muted loop id="myVideo">
+            <source src="images/signinback.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
         <div class="container">
             <div class="col-md-6 col-centered login">
                 <h1>Sign In</h1>
-                <div class="col-md-11 col-centered">
-                    <div class="row login_block">
-                        <div class="col-md-4">
-                            <label>Email</label>
-                        </div>
+                <form action="districts.html" onsubmit="return validate()">
+                    <div class="col-md-11 col-centered">
+                        <div class="row login_block ">
 
-                        <div class="col-md-8">
-                            <input type="text" placeholder="Email" class="form-control">
+                            <div class="input-field">
+                                <input type="text" id="email" />
+                                <label for="Email">Email <p class="error" id="error_email"></p> </label>
+                            </div>
+
+                        </div>
+                        <div class="row login_block ">
+
+                            <div class="input-field">
+                                <input type="password" id="password" />
+                                <label for="Password">Password <p class="error" id="error_password"></p> </label>
+                            </div>
+
+                        </div>
+                        <div class="row login_block login_block_button">
+                            <!-- <div class="col-md-4">
+
+                        </div> -->
+
+                            <div class="col-md-12 login_block_button1">
+                                <button class="btn_login">LOGIN</button>
+                            </div>
+                        </div>
+                        <div class="row login_block">
+                            <div class="col-md-12 login_block_button1">
+                                <p class="link_text">Need an account? <a href="sign-up.html">Sign Up</a></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="row login_block">
-                        <div class="col-md-4">
-                            <label>Password</label>
-                        </div>
-
-                        <div class="col-md-8">
-                            <input type="text" placeholder="******" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row login_block">
-                        <div class="col-md-4">
-
-                        </div>
-
-                        <div class="col-md-8">
-                            <button class="btn_login">LOGIN</button>
-                        </div>
-                    </div>
-                    <div class="row login_block">
-                        <div class="col-md-4">
-
-                        </div>
-
-                        <div class="col-md-8">
-                            <p class="link_text">Need an account? <a href="sign-up.html">Sign Up</a></p>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
 
         </div>
     </div>
-    <footer>
+    <!-- <footer>
         <div class="social">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <!-- <a href="index.html">Home</a>
-                    <br>
-                    <br>
-                    <a href="districts.html">Districts</a> -->
                         <h4>Contact</h4>
                         <p>Kerala Tourism</p>
                         <p>Trivandrum</p>
@@ -108,7 +104,6 @@
                         <p>Email: kerala.tourism@mail.com</p>
                     </div>
                     <div class="col-md-4 footer_logo">
-                        <!-- <img class="logo" src="images/logo.png"> -->
                     </div>
                 </div>
 
@@ -117,7 +112,7 @@
         <div>
             <p class="footer_text">Copyright © 2020</p>
         </div>
-    </footer>
+    </footer> -->
     <script>
         $(window).scroll(function() {
             if ($(document).scrollTop() > 50) {
@@ -136,7 +131,7 @@
 
         });
     </script>
-
+    <script src="js/form.js"></script>
 </body>
 
 </html>
