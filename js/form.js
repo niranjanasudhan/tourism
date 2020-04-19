@@ -2,60 +2,83 @@ function validate() {
     let flag = 1;
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-
-    if (email.value.trim() == "") {
-        document.getElementById('error_email').style.display = "block";
-        document.getElementById('email').style.borderBottom = "2px solid tomato";
-        document.getElementById('error_email').innerHTML = "* Enter Your Email ID";
-        flag = 0;
-
-
-    } else {
-        document.getElementById('error_email').style.display = "none";
-        document.getElementById('email').style.borderBottom = "2px solid #fff";
-        document.getElementById('error_email').innerHTML = "";
-
-        if (password.value.trim() == "") {
-
-            document.getElementById('error_password').style.display = "block";
-            document.getElementById('password').style.borderBottom = "2px solid tomato";
-            document.getElementById('error_password').innerHTML = "* Enter Your Password";
-            flag = 0;
-
-        } else {
-            document.getElementById('error_password').style.display = "none";
-            document.getElementById('password').style.borderBottom = "2px solid #fff";
-            document.getElementById('error_password').innerHTML = "";
-
-            if (email.value.trim() != "") {
-
-                // let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-Z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
-                let regexp = /^([\w\d\-\.]+)@{1}(([\w\d\-]{1,67})|([\w\d\-]+\.[\w\d\-]{1,67}))\.(([a-zA-Z\d]{2,4})(\.[a-zA-Z\d]{2})?)$/;
-                if (regexp.test(email.value)) {
-
-                    document.getElementById('error_email').style.display = "none";
-                    document.getElementById('email').style.borderBottom = "2px solid #fff";
-                    document.getElementById('error_email').innerHTML = "";
-
-                } else {
-                    document.getElementById('error_email').style.display = "block";
-                    document.getElementById('email').style.borderBottom = "2px solid tomato";
-                    document.getElementById('error_email').innerHTML = "* Enter Valid Email ID";
-                    flag = 0;
-                }
-            }
-
-        }
-    }
-
-
-
-    if (flag == 1) {
+    if (check_email(email.value) && check_password(password.value)) {
         return true;
     } else {
         return false;
     }
 }
+
+function check_email(email) {
+    if (email.trim() == "") {
+        document.getElementById('error_email').style.display = "block";
+        document.getElementById('email').style.borderBottom = "2px solid tomato";
+        document.getElementById('error_email').innerHTML = "* Enter Your Email ID";
+        return false;
+
+
+    } else {
+
+
+        // let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-Z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
+        let regexp = /^([\w\d\-\.]+)@{1}(([\w\d\-]{1,67})|([\w\d\-]+\.[\w\d\-]{1,67}))\.(([a-zA-Z\d]{2,4})(\.[a-zA-Z\d]{2})?)$/;
+        if (regexp.test(email)) {
+
+            document.getElementById('error_email').style.display = "none";
+            document.getElementById('email').style.borderBottom = "2px solid #fff";
+            document.getElementById('error_email').innerHTML = "";
+            return true;
+
+        } else {
+            document.getElementById('error_email').style.display = "block";
+            document.getElementById('email').style.borderBottom = "2px solid tomato";
+            document.getElementById('error_email').innerHTML = "* Enter Valid Email ID";
+            return false;
+
+
+
+        }
+
+
+
+    }
+}
+
+
+function check_password(password) {
+    if (password.trim() == "") {
+
+        document.getElementById('error_password').style.display = "block";
+        document.getElementById('password').style.borderBottom = "2px solid tomato";
+        document.getElementById('error_password').innerHTML = "* Enter Your Password";
+        return false;
+
+
+    } else {
+
+        var regexp_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
+
+        if (regexp_pass.test(password.trim())) {
+            document.getElementById('error_password').style.display = "none";
+            document.getElementById('password').style.borderBottom = "2px solid #fff";
+            document.getElementById('error_password').innerHTML = "";
+            return true;
+
+        } else {
+            document.getElementById('error_password').style.display = "block";
+            document.getElementById('password').style.borderBottom = "2px solid tomato";
+            document.getElementById('error_password').innerHTML = "* Enter Valid Password";
+            return false;
+        }
+
+    }
+}
+
+
+
+
+
+
 
 function passwordStrenght(val) {
     var res = validate_password(val);
